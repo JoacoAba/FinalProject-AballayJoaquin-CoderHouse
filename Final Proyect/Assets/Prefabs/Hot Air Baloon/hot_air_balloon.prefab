@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4803344287093703895}
   - component: {fileID: 8432765706735471474}
   - component: {fileID: 5972834077202497464}
-  - component: {fileID: 4981633555430114299}
+  - component: {fileID: 6169879080095338120}
   - component: {fileID: 3829550292273413081}
   m_Layer: 0
   m_Name: hot_air_balloon
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4981633555430114299
+--- !u!114 &6169879080095338120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5324161317973466733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b29b77ae0cd1f49902198ccb5d1c64, type: 3}
+  m_Script: {fileID: 11500000, guid: 55e698fdda11a1d409e484beaaf6b264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.4
   DestroyDelay: 22
 --- !u!65 &3829550292273413081
 BoxCollider:

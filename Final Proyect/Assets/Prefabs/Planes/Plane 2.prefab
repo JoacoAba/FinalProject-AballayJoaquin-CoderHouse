@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5216215185756749898}
   - component: {fileID: 155048835394709728}
   - component: {fileID: 2015289707994243567}
-  - component: {fileID: 1233192162}
+  - component: {fileID: -5418136311722301621}
   m_Layer: 0
   m_Name: Plane 2
   m_TagString: Plane
@@ -152,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d596354ffc21e542b03cceef355b950, type: 2}
+  - {fileID: -876546973899608171, guid: a10ea97d1e7447a42a14b05fff673229, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,7 +214,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.51, y: 0.57, z: 0.51}
   m_Center: {x: 1.19, y: 0.57, z: -0.016435623}
---- !u!114 &1233192162
+--- !u!114 &-5418136311722301621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,10 +223,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5216215185756749901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078fc4bb691661841b3334ce80621153, type: 3}
+  m_Script: {fileID: 11500000, guid: f6fd2348459d0354e8943e95513986f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Plane: {fileID: 0}
   speed: 3
 --- !u!1 &7939413683355075542
 GameObject:
