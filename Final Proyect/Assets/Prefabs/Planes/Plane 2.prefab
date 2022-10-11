@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 6008721520198164888}
   - component: {fileID: 5216215185756749898}
   - component: {fileID: 155048835394709728}
-  - component: {fileID: 2015289707994243567}
   - component: {fileID: -5418136311722301621}
+  - component: {fileID: 4828754884503720272}
   m_Layer: 0
   m_Name: Plane 2
   m_TagString: Plane
@@ -199,21 +199,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0360641, y: 0.6738955, z: 4.978889}
-  m_Center: {x: -0.04930973, y: 0.7060599, z: -0.044427633}
---- !u!65 &2015289707994243567
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5216215185756749901}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.51, y: 0.57, z: 0.51}
-  m_Center: {x: 1.19, y: 0.57, z: -0.016435623}
+  m_Size: {x: 2.9635754, y: 0.66144824, z: 4.940198}
+  m_Center: {x: 0.83859587, y: 0.70860994, z: 0.034318924}
 --- !u!114 &-5418136311722301621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +214,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!65 &4828754884503720272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216215185756749901}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41, y: 1.185599, z: 3.75}
+  m_Center: {x: 2.01, y: 1.52, z: 0}
 --- !u!1 &7939413683355075542
 GameObject:
   m_ObjectHideFlags: 0

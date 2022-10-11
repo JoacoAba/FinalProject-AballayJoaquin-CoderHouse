@@ -1,17 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharMov : MonoBehaviour
-{
-    public Animator PlayerAnimation;
+{   
+    float CameraAxisX = 0f;
 
+    public Animator PlayerAnimation;
     [SerializeField][Range(2, 5)] float speed = 3f;
     [SerializeField][Range(1, 2)] float delayNextJump = 1f;
-    [SerializeField][Range(0, 2)] float CamSensibility = 0.5f;
 
     private float jumpForce = 5f;
-    private float CameraAxisX = 0f;
     private bool inDelayJump = false;
     private bool canJump = true;
 
@@ -26,7 +26,7 @@ public class CharMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraMov();
+        RotatePlayer();
         if(Input.GetKey(KeyCode.W))
         {
             if(!IsAnimation("Forward")){if(!IsAnimation("Jump")){PlayerAnimation.SetTrigger("Forward");}}
@@ -56,6 +56,12 @@ public class CharMov : MonoBehaviour
 
     }
 
+    private void RotatePlayer()
+    {
+        CameraAxisX += Input.GetAxis("Mouse X");
+        transform.rotation = Quaternion.Euler(0f, CameraAxisX * 2f, 0f);
+    }
+
     void FixedUpdate() 
     {
         if(Input.GetKey(KeyCode.Space) && !inDelayJump && canJump)
@@ -81,13 +87,6 @@ public class CharMov : MonoBehaviour
         inDelayJump = false;
         canJump = true;
     }
-
-    void CameraMov()
-    {
-        CameraAxisX += Input.GetAxis("Mouse X");
-        transform.rotation = Quaternion.Euler(0, CameraAxisX * CamSensibility, 0);
-    }
-
     bool IsAnimation(string animName)
     {
         return PlayerAnimation.GetCurrentAnimatorStateInfo(0).IsName(animName);

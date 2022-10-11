@@ -14,18 +14,15 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField] GameObject [] Crystals;
     List<GameObject> CrystalList;
-    [SerializeField] Dictionary<string, GameObject> CrystalDirectory;
 
     
 
     public List<GameObject> crystalList { get => CrystalList; set => CrystalList = value; }
-    public Dictionary<string, GameObject> crystalDirectory { get => CrystalDirectory; set => CrystalDirectory = value; }
 
     private void Start() 
     {
         playerManager = GetComponent<PlayerManager>();
         CrystalList = new List<GameObject>();
-        CrystalDirectory = new Dictionary<string, GameObject>();
         HUDManager.setHPbar(playerManager.HP);
     }
 
@@ -37,18 +34,12 @@ public class PlayerCollision : MonoBehaviour
         {
             OnCrystal?.Invoke();
             Invoke("DestroyHUD", 3f);
-            Debug.Log("Evento OnCrystal llamado por: "+other.name);
             crystalList.Add(gameObject);
-            crystalDirectory.Add(other.gameObject.name, other.gameObject);
-            Debug.Log("Has recogido: "+ crystalDirectory[other.gameObject.name]);
-
             Destroy(other.gameObject);
             
             if(CrystalList.Count == 3)
             {
                 OnCrystalWin.Invoke();
-                Debug.Log("Evento OnCrystalWin llamado por: "+other.name);
-                Debug.Log("Felicidades! Has conseguido los tres cristales!");
             }
         }
         
@@ -64,7 +55,6 @@ public class PlayerCollision : MonoBehaviour
             if(playerManager.HP == 100)
             {
                 Destroy(other.gameObject);
-                Debug.Log("Su vida ya tiene " + playerManager.HP + " puntos.");
             }
         }
         
@@ -74,9 +64,6 @@ public class PlayerCollision : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 playerManager.Damage(other.gameObject.GetComponent<DamageItems>().Damage);
-                
-                Debug.Log(playerManager.HP);
-
                 HUDManager.setHPbar(playerManager.HP);
             }
         }
