@@ -13,31 +13,51 @@ public class CharManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
+        
         if(Input.GetKey(KeyCode.W))
         {
-            if(!IsAnimating("Run")){PlayerAnimator.SetTrigger("Run");}
+            if(!IsAnimating("Forward")){PlayerAnimator.SetTrigger("Forward");}
             Move(Vector3.forward);
         }
         if(Input.GetKey(KeyCode.A))
         {
-            if(!IsAnimating("Run")){PlayerAnimator.SetTrigger("Run");}
+            if(!IsAnimating("Left")){PlayerAnimator.SetTrigger("Left");}
             Move(Vector3.left);
         }
         if(Input.GetKey(KeyCode.S))
         {
-            if(!IsAnimating("Run")){PlayerAnimator.SetTrigger("Run");}
+            if(!IsAnimating("Right")){PlayerAnimator.SetTrigger("Right");}
             Move(Vector3.back);
         }
         if(Input.GetKey(KeyCode.D))
         {
-            if(!IsAnimating("Run")){PlayerAnimator.SetTrigger("Run");}
+            if(!IsAnimating("Back")){PlayerAnimator.SetTrigger("Back");}
             Move(Vector3.right);
+        }
+        if(Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.A))
+        {
+            if(!IsAnimating("LeftBack")){PlayerAnimator.SetTrigger("LeftBack");}
+        }
+        if(Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.S))
+        {
+            if(!IsAnimating("RightBack")){PlayerAnimator.SetTrigger("RightBack");}
+        }
+        if(Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.A))
+        {
+            if(!IsAnimating("LeftForw")){PlayerAnimator.SetTrigger("LeftForw");}
+        }
+        if(Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.S))
+        {
+            if(!IsAnimating("RightForw")){PlayerAnimator.SetTrigger("RightForw");}
         }
         if(Input.GetKeyUp(KeyCode.W)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.D)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
+        if(Input.GetKeyUp(KeyCode.D)&&Input.GetKey(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
+        if(Input.GetKeyUp(KeyCode.D)&&Input.GetKey(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
+        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
+        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
     }
 
     bool IsAnimating(string animName)

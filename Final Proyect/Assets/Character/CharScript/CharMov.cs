@@ -29,7 +29,7 @@ public class CharMov : MonoBehaviour
         RotatePlayer();
         if(Input.GetKey(KeyCode.W))
         {
-            if(!IsAnimation("Forward")){if(!IsAnimation("Jump")){PlayerAnimation.SetTrigger("Forward");}}
+            if(!IsAnimation("Forward")){PlayerAnimation.SetTrigger("Forward");}
             Move(Vector3.forward); 
         }
         if(Input.GetKey(KeyCode.A))
@@ -48,11 +48,21 @@ public class CharMov : MonoBehaviour
             Move(Vector3.right);
             
         }
+        if(Input.GetKeyUp(KeyCode.S)&&Input.GetKey(KeyCode.A))
+        {
+            if(!IsAnimation("LeftBack")){if(!IsAnimation("Jump")){PlayerAnimation.SetTrigger("LeftBack");}}
+            Move(Vector3.left);
+            
+        }
         
         if(Input.GetKeyUp(KeyCode.W)){PlayerAnimation.SetTrigger("Idle");}
         if(Input.GetKeyUp(KeyCode.A)){PlayerAnimation.SetTrigger("Idle");}
         if(Input.GetKeyUp(KeyCode.S)){PlayerAnimation.SetTrigger("Idle");}
         if(Input.GetKeyUp(KeyCode.D)){PlayerAnimation.SetTrigger("Idle");}
+        if(Input.GetKeyUp(KeyCode.S)&&Input.GetKey(KeyCode.A)){PlayerAnimation.SetTrigger("Idle");}
+        if(Input.GetKeyUp(KeyCode.S)&&Input.GetKey(KeyCode.D)){PlayerAnimation.SetTrigger("Idle");}
+        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.A)){PlayerAnimation.SetTrigger("Idle");}
+        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.D)){PlayerAnimation.SetTrigger("Idle");}
 
     }
 
@@ -64,7 +74,7 @@ public class CharMov : MonoBehaviour
 
     void FixedUpdate() 
     {
-        if(Input.GetKey(KeyCode.Space) && !inDelayJump && canJump)
+        if(Input.GetKeyDown(KeyCode.Space) && !inDelayJump && canJump)
         {
             if(!IsAnimation("Jump"))
                 {
