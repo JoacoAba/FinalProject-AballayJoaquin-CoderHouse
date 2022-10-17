@@ -551,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: Creditos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e503eb410b29e3469c8742e29137e0a, type: 2}
   m_sharedMaterial: {fileID: -6104722436756556536, guid: 7e503eb410b29e3469c8742e29137e0a, type: 2}
@@ -1210,6 +1210,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 1796324156103349194, guid: 890b972c07dffd94590a724a9e24ab8a, type: 2}
     value: {fileID: 1326005460}
+  - key: {fileID: -5421809546219781942, guid: 890b972c07dffd94590a724a9e24ab8a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8687541432200812388, guid: 890b972c07dffd94590a724a9e24ab8a, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1732566767
@@ -1520,7 +1524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls
+  m_text: Controles y Objetivo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e503eb410b29e3469c8742e29137e0a, type: 2}
   m_sharedMaterial: {fileID: -6104722436756556536, guid: 7e503eb410b29e3469c8742e29137e0a, type: 2}
@@ -1696,5 +1700,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 891590654}
+    - target: {fileID: 8888235248533471016, guid: 36db865f6e593c7448b3d84fe114afdb, type: 3}
+      propertyPath: m_text
+      value: Jugar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36db865f6e593c7448b3d84fe114afdb, type: 3}
