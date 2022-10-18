@@ -36,6 +36,10 @@ public class CharMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerManager.HP == 0)
+        {
+            pause = true;
+        }
         if(!pause){
             RotatePlayer();
             if(Input.GetKey(KeyCode.W))
@@ -72,7 +76,6 @@ public class CharMov : MonoBehaviour
     {
         if(other.gameObject.CompareTag("GameOver"))
         {
-            playerManager.Damage(50);
             transform.position = Vector3.zero;
         }
     }

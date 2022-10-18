@@ -7,11 +7,13 @@ public class HUDManager : MonoBehaviour
 {
     private static HUDManager instance;
     public static HUDManager Instance {get => instance;}
-    
+    private PlayerManager playerManager;
 
     [SerializeField] private Slider hpBar;
 
     [SerializeField] private GameObject [] Crystals;
+
+    [SerializeField] private GameObject LosePanel;
 
     
     private void Awake()
@@ -19,7 +21,6 @@ public class HUDManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            Debug.Log(instance);
         }
         else
         {
@@ -28,10 +29,26 @@ public class HUDManager : MonoBehaviour
     }
 
     void Start() 
-    {   
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+
         Crystals[0].SetActive(false);
         Crystals[1].SetActive(false);
         Crystals[2].SetActive(false);
+
+        playerManager = GetComponent<PlayerManager>();
+    }
+
+    void Update()
+    {
+        if(playerManager.HP == 0)
+        {
+            Crystals[0].SetActive(false);
+            Crystals[1].SetActive(false);
+            Crystals[2].SetActive(false);
+            
+            LosePanel.SetActive(true);
+        }
     }
     public static void setHPbar (int newVal)
     {

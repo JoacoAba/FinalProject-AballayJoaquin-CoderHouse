@@ -5,23 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    [SerializeField] GameObject[] Panel;
+
+    void Start() 
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+
+        Panel[0].SetActive(true);
+        Panel[1].SetActive(false);
+        Panel[2].SetActive(false);
+    }
     public static void Play()
     {
         SceneManager.LoadScene("Level 1");
     }
 
-    public static void Controls()
+    public void Controls()
     {
-        SceneManager.LoadScene("Controls");
+        Panel[0].SetActive(false);
+        Panel[1].SetActive(true);
+        Panel[2].SetActive(false);
     }
 
-    public static void Credits()
+    public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        Panel[0].SetActive(false);
+        Panel[1].SetActive(false);
+        Panel[2].SetActive(true);
     }
 
-    public static void Volver()
+    public void Volver()
     {
-        SceneManager.LoadScene("MainMenu");
+        Panel[0].SetActive(true);
+        Panel[1].SetActive(false);
+        Panel[2].SetActive(false);
     }
 }

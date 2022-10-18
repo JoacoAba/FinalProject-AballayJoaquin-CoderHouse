@@ -45,28 +45,17 @@ public class PlayerCollision : MonoBehaviour
             }
         }
         
-        if(other.gameObject.CompareTag("PowerUp"))
-        {
-            if(playerManager.HP < 100)
-            {
-                Destroy(other.gameObject);
-                playerManager.Healing(other.gameObject.GetComponent<PowerUps>().HealPoints);
-                Debug.Log(playerManager.HP);
-                HUDManager.setHPbar(playerManager.HP);
-            }   
-            if(playerManager.HP == 100)
-            {
-                Destroy(other.gameObject);
-            }
-        }
         
-        if(other.gameObject.CompareTag("DamageItem"))
+        if(other.gameObject.CompareTag("GameOver"))
         {
             if(playerManager.HP != 0)
             {
-                Destroy(other.gameObject);
                 playerManager.Damage(other.gameObject.GetComponent<DamageItems>().Damage);
                 HUDManager.setHPbar(playerManager.HP);
+            }
+            if(playerManager.HP == 0)
+            {
+                Invoke("MainMenu", 2f);
             }
         }
     }
