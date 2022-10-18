@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerCollision : MonoBehaviour
             if(CrystalList.Count == 3)
             {
                 OnCrystalWin.Invoke();
+                Invoke("MainMenu", 2f);
             }
         }
         
@@ -72,5 +74,10 @@ public class PlayerCollision : MonoBehaviour
     void DestroyHUD()
     {
         HUD.SetActive(false);
+    }
+
+    void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
