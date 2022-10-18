@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharMov : MonoBehaviour
 {   
@@ -11,6 +12,8 @@ public class CharMov : MonoBehaviour
     public bool pause = false;
     
     public UnityEvent GameOver;
+
+    private PlayerManager playerManager;
 
     public Animator PlayerAnimation;
     [SerializeField][Range(2, 5)] float speed = 3f;
@@ -25,7 +28,7 @@ public class CharMov : MonoBehaviour
     
     void Start()
     {
-        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        playerManager = GetComponent<PlayerManager>();
         myRigidBody = GetComponent<Rigidbody>();
         myRigidBody.AddForce(Vector3.forward * 100f);
     }
@@ -56,8 +59,6 @@ public class CharMov : MonoBehaviour
                 Move(Vector3.right);
                 
             }
-            
-            
         }    
 
         if(Input.GetKeyUp(KeyCode.W)){PlayerAnimation.SetTrigger("Idle");}
@@ -71,7 +72,8 @@ public class CharMov : MonoBehaviour
     {
         if(other.gameObject.CompareTag("GameOver"))
         {
-            pause = true;
+            playerManager.Damage(50);
+            transform.position = Vector3.zero;
         }
     }
 
@@ -83,17 +85,20 @@ public class CharMov : MonoBehaviour
 
     void FixedUpdate() 
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !inDelayJump && canJump)
+        if(!pause)
         {
-            if(!IsAnimation("Jump"))
-                {
-                    PlayerAnimation.SetTrigger("Jump");
-                }
-            myRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            inDelayJump = true;
-            canJump = false;
-            Invoke("DelayNextJump", delayNextJump);
-        }
+            if(Input.GetKeyDown(KeyCode.Space) && !inDelayJump && canJump)
+            {
+                if(!IsAnimation("Jump"))
+                    {
+                        PlayerAnimation.SetTrigger("Jump");
+                    }
+                myRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                inDelayJump = true;
+                canJump = false;
+                Invoke("DelayNextJump", delayNextJump);
+            }
+        }    
     }
 
     void Move(Vector3 dir)
@@ -109,5 +114,9 @@ public class CharMov : MonoBehaviour
     bool IsAnimation(string animName)
     {
         return PlayerAnimation.GetCurrentAnimatorStateInfo(0).IsName(animName);
+    }
+    void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

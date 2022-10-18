@@ -34,30 +34,10 @@ public class CharManager : MonoBehaviour
             if(!IsAnimating("Back")){PlayerAnimator.SetTrigger("Back");}
             Move(Vector3.right);
         }
-        if(Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.A))
-        {
-            if(!IsAnimating("LeftBack")){PlayerAnimator.SetTrigger("LeftBack");}
-        }
-        if(Input.GetKey(KeyCode.D)&&Input.GetKey(KeyCode.S))
-        {
-            if(!IsAnimating("RightBack")){PlayerAnimator.SetTrigger("RightBack");}
-        }
-        if(Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.A))
-        {
-            if(!IsAnimating("LeftForw")){PlayerAnimator.SetTrigger("LeftForw");}
-        }
-        if(Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.S))
-        {
-            if(!IsAnimating("RightForw")){PlayerAnimator.SetTrigger("RightForw");}
-        }
         if(Input.GetKeyUp(KeyCode.W)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
         if(Input.GetKeyUp(KeyCode.D)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
-        if(Input.GetKeyUp(KeyCode.D)&&Input.GetKey(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
-        if(Input.GetKeyUp(KeyCode.D)&&Input.GetKey(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
-        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.A)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
-        if(Input.GetKeyUp(KeyCode.W)&&Input.GetKey(KeyCode.S)){if(!IsAnimating("Idle")){PlayerAnimator.SetTrigger("Idle");}}
     }
 
     bool IsAnimating(string animName)

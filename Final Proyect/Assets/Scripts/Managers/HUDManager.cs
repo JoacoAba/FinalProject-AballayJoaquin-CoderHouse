@@ -16,7 +16,6 @@ public class HUDManager : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log("EJECUTANDO AWAKE");
         if (instance == null)
         {
             instance = this;
